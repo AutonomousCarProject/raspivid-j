@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class Streamer {
 
-  public static final String[] defaultArgs = {};
+  public static final String[] defaultArgs = {"-n -v -o -"};
   private TYPE type = TYPE.YUV;
   private Process process = null;
   private ProcessBuilder processBuilder;
@@ -48,8 +48,9 @@ public class Streamer {
     return Optional.of(process);
   }
 
-  public void start() throws IOException {
+  public Streamer start() throws IOException {
     process = processBuilder.start();
+    return this;
   }
 
   public void stop() {

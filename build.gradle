@@ -2,22 +2,18 @@ apply plugin:'java'
 
 sourceCompatibility = 1.8
 
-task wrapper(type: Wrapper) {
+wrapper {
     gradleVersion = '4.9'
 }
 
-repositories {
-    mavenCentral()
-}
+subprojects {
+    apply plugin: "java"
 
-dependencies {
-    compile 'org.jetbrains:annotations:15.0'
-}
+    repositories {
+        mavenCentral()
+    }
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ['lib/']
-        }
+    dependencies {
+        compile 'org.jetbrains:annotations:15.0'
     }
 }
