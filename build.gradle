@@ -1,3 +1,23 @@
+apply plugin:'java'
+
+sourceCompatibility = 1.8
+
 task wrapper(type: Wrapper) {
     gradleVersion = '4.9'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.jetbrains:annotations:15.0'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['lib/']
+        }
+    }
 }
