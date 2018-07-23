@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Optional;
 
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class Streamer {
 
   public static final String[] defaultArgs = {"-n", "-o", "-"};
@@ -24,7 +25,10 @@ public class Streamer {
   public Streamer(Attribute[] attributes) throws IOException {
     // Go through the array of attributes. If the attribute's command form exists, iterate
     // through its args and put them into a String array. Pass that String array into buildProcess()
-    // FIXME Why does this redundant typcast allow it to compile?
+
+    // This cast is not redundant, it will not compile without it.
+    // See https://stackoverflow.com/questions/31227149
+    //noinspection RedundantCast
     buildProcess(Arrays.stream(attributes).map(Attribute::getCommand).filter(Optional::isPresent)
         .map(Optional::get).flatMap((array) -> (Arrays.stream((String[]) array))).toArray
             (String[]::new));
