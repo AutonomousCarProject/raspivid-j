@@ -1,5 +1,6 @@
 package attributes;
 
+import java.util.Optional;
 import org.jetbrains.annotations.NotNull;
 
 public enum BoolAttribute implements Attribute<Boolean> {
@@ -41,11 +42,11 @@ public enum BoolAttribute implements Attribute<Boolean> {
   }
 
   @Override
-  public String getCommand() {
+  public Optional<String[]> getCommand() {
     if (v) {
-      return shortname;
+      return Optional.of(new String[]{shortname});
     } else {
-      return "";
+      return Optional.empty();
     }
   }
 }

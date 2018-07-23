@@ -1,7 +1,8 @@
 package attributes;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public interface Attribute<T> {
 
@@ -11,10 +12,10 @@ public interface Attribute<T> {
 
   String getInvocationName();
 
-  default String getCommand() {
+  default Optional<String[]> getCommand() {
     // Add the shortname together with the data
-    return "-" + getInvocationName() + " " + Arrays.stream(get()).map(Object::toString).collect
-        (Collectors.joining(" "));
+    return Optional.of(Stream.concat(Arrays.stream(new String[]{getInvocationName()}), Arrays.stream
+        (get())).map(Object::toString).toArray(String[]::new));
   }
 
 }

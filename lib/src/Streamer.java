@@ -17,16 +17,17 @@ public class Streamer {
     buildProcess(defaultArgs);
   }
 
-  public Streamer(String args) throws IOException {
-    buildProcess(args.split(" "));
-  }
-
   public Streamer(String... args) throws IOException {
     buildProcess(args);
   }
 
   public Streamer(Attribute[] attributes) throws IOException {
-    buildProcess((String[]) Arrays.stream(attributes).map(Attribute::getCommand).toArray());
+    // Go through the array of attributes. If the attribute's command form exists, iterate
+    // through its args and put them into a String array. Pass that String array into buildProcess()
+    // FIXME Why does this redundant typcast allow it to compile?
+    buildProcess(Arrays.stream(attributes).map(Attribute::getCommand).filter(Optional::isPresent)
+        .map(Optional::get).flatMap((array) -> (Arrays.stream(array))).toArray
+            (String[]::new));
   }
 
   private void buildProcess(String[] args) throws IOException {
