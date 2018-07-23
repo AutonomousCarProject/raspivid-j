@@ -15,8 +15,8 @@ public enum Mode implements Attribute<ModeMode> {
   }
 
   @Override
-  public void set(ModeMode[] v) {
-
+  public Attribute<ModeMode> set(ModeMode[] v) {
+    return this;
   }
 
   @Override

@@ -7,7 +7,7 @@ public interface Attribute<T> {
 
   T[] get();
 
-  void set(T[] v);
+  Attribute<T> set(T[] v);
 
   String getInvocationName();
 

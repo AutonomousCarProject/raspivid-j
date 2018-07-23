@@ -30,8 +30,9 @@ public enum BoolAttribute implements Attribute<Boolean> {
   }
 
   @Override
-  public void set(Boolean[] v) {
+  public Attribute<Boolean> set(Boolean[] v) {
     this.v = v[0];
+    return this;
   }
 
   @Override

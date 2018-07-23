@@ -21,8 +21,9 @@ public enum StrAttribute implements Attribute<String> {
   }
 
   @Override
-  public void set(String[] v) {
+  public Attribute<String> set(String[] v) {
     vals = v;
+    return this;
   }
 
   @Override

@@ -15,8 +15,8 @@ public enum InitialState implements Attribute<InitialStateMode> {
   }
 
   @Override
-  public void set(InitialStateMode[] v) {
-
+  public Attribute<InitialStateMode> set(InitialStateMode[] v) {
+    return this;
   }
 
   @Override

@@ -20,8 +20,9 @@ public enum Exposure implements Attribute<ExposureMode> {
   }
 
   @Override
-  public void set(ExposureMode[] v) {
+  public Attribute<ExposureMode> set(ExposureMode[] v) {
     this.v = v[0];
+    return this;
   }
 
   @Override

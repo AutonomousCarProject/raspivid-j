@@ -31,8 +31,7 @@ public enum IntAttribute implements Attribute<Integer> {
       handler) {
     this.handler = handler;
     this.shortname = shortname;
-    Optional.of(defaultV).ifPresent(Optional.of(this.handler).orElse((v) -> {
-    }));
+    set(defaultV);
   }
 
   private static Consumer<Integer[]> forceToRange(@Nullable Integer low, @Nullable Integer high) {
@@ -53,8 +52,10 @@ public enum IntAttribute implements Attribute<Integer> {
   }
 
   @Override
-  public void set(Integer[] v) {
-    this.handler.accept(v);
+  public Attribute<Integer> set(Integer[] vs) {
+    Optional.of(vs).ifPresent(Optional.of(this.handler).orElse((v) -> {
+    }));
+    return this;
   }
 
   @Override
