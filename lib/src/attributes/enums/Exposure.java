@@ -30,7 +30,7 @@ public enum Exposure implements Attribute<ExposureMode> {
     return shortname;
   }
 
-  enum ExposureMode {
+  public enum ExposureMode {
     AUTO, NIGHT, NIGHTPREVIEW, BACKLIGHT, SPOTLIGHT, SPORTS, SNOW, BEACH, VERYLONG, FIXEDFPS,
     ANTISHAKE, FIREWORKS;
 

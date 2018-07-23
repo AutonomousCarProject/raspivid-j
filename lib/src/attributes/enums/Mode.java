@@ -24,7 +24,7 @@ public enum Mode implements Attribute<ModeMode> {
     return null;
   }
 
-  enum ModeMode {
+  public enum ModeMode {
 
   }
 

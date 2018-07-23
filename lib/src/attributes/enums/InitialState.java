@@ -24,7 +24,7 @@ public enum InitialState implements Attribute<InitialStateMode> {
     return null;
   }
 
-  enum InitialStateMode {
+  public enum InitialStateMode {
 
   }
 
