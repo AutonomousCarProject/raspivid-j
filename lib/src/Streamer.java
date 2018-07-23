@@ -26,7 +26,7 @@ public class Streamer {
     // through its args and put them into a String array. Pass that String array into buildProcess()
     // FIXME Why does this redundant typcast allow it to compile?
     buildProcess(Arrays.stream(attributes).map(Attribute::getCommand).filter(Optional::isPresent)
-        .map(Optional::get).flatMap((array) -> (Arrays.stream(array))).toArray
+        .map(Optional::get).flatMap((array) -> (Arrays.stream((String[]) array))).toArray
             (String[]::new));
   }
 
