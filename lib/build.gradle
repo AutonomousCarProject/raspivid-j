@@ -1,4 +1,4 @@
-apply plugin: "maven"
+apply plugin: 'java'
 
 sourceSets {
     main {
@@ -7,3 +7,4 @@ sourceSets {
         }
     }
 }
+
