@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class Streamer {
 
-  public static final String[] defaultArgs = {"-n -v -o -"};
+  public static final String[] defaultArgs = {"-n", "-o", "-"};
   private TYPE type = TYPE.YUV;
   private Process process = null;
   private ProcessBuilder processBuilder;
