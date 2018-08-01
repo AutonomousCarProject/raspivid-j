@@ -9,8 +9,13 @@ public enum IntAttribute implements Attribute<Integer> {
 
   WIDTH(new Integer[]{1920}, "w", forceToRange(1, null)),
   HEIGHT(new Integer[]{1080}, "h", forceToRange(1, null)),
+  BITRATE(null, "b", forceToRange(0, null)),
   TIMEOUT(new Integer[]{5000}, "t", forceToRange(0, null)),
   FRAMERATE(new Integer[]{30}, "fps", forceToRange(0, 60)),
+  INTRA(null, "g", null),
+  QUANTITIZAION(null, "qp", forceToRange(0, null)),
+  SEGMENT(null, "sg", forceToRange(0, null)),
+  LEVEL(null, "lev", forceToRange(0, null)),
   CAMERASELECT(new Integer[]{0}, "cs", forceToRange(0, null)),
   PREVIEW(null, "p", null),
   OPACITY(new Integer[]{255}, "op", forceToRange(0, 255)),
@@ -19,7 +24,9 @@ public enum IntAttribute implements Attribute<Integer> {
   BRIGHTNESS(null, "br", forceToRange(0, 100)),
   SATURATION(null, "sa", forceToRange(-100, 100)),
   ISO(null, "ISO", forceToRange(100, 800)),
-  EV(null, "ev", forceToRange(-10, 10));
+  EV(null, "ev", forceToRange(-10, 10)),
+  ROTATION(null, "rot", forceToRange(0, 359)),
+  SHUTTERSPEED(null, "ss", forceToRange(0, null));
 
   @NotNull
   public final String shortname;
