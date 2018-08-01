@@ -9,7 +9,7 @@ import java.util.Optional;
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class Streamer {
 
-  public static final String[] defaultArgs = {"-n", "-o", "-"};
+  public static final String[] defaultArgs = {"-n", "-o", "-", "-t", "0"};
   private TYPE type = TYPE.YUV;
   private Process process = null;
   private ProcessBuilder processBuilder;
