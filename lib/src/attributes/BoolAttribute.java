@@ -10,10 +10,25 @@ public enum BoolAttribute implements Attribute<Boolean> {
   TIMED(false, "td"),
   SIGNAL(false, "s"),
   KEYPRESS(false, "k"),
+  INLINE(false, "ih"),
+  WRAP(false, "wr"),
+  START(false, "sn"),
+  SPLIT(false, "sp"),
+  CIRCULAR(false, "c"),
+  FLUSH(false, "fl"),
+  SAVEPTS(false, "pts"),
   SETTINGS(false, "set"),
   FULLSCREEN(false, "f"),
   NOPREVIEW(true, "n"),
-  VSTAB(false, "vs");
+  ENCPREVIEW(false, "e"),
+  VSTAB(false, "vs"),
+  HORIZONTALFLIP(false, "hf"),
+  VERTICALFLIP(false, "vf"),
+  STATS(false, "st"),
+  ANOTTATIONFLAGS(false, "a"),
+  STEROSCOPIC(false, "3d"),
+  DECIMATE(false, "dec"),
+  STEROSWAP(false, "3dswap");
 
   @NotNull
   public final String shortname;

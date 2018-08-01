@@ -9,8 +9,8 @@ import java.util.Optional;
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class Streamer {
 
-  public static final String[] defaultArgs = {"-n", "-o", "-", "-t", "0"};
-  private TYPE type = TYPE.YUV;
+  public static final String[] defaultArgs = {"rf", "rgb", "-n", "-o", "-", "-t", "0"};
+  private static final String commandName = "raspivid";
   private Process process = null;
   private ProcessBuilder processBuilder;
 
@@ -36,15 +36,15 @@ public class Streamer {
 
   private void buildProcess(String[] args) throws IOException {
     // Test to see if the command is installed
-    if (new DataInputStream(new ProcessBuilder(type.invocationName).start().getInputStream())
+    if (new DataInputStream(new ProcessBuilder(commandName).start().getInputStream())
         .readUTF().equals("")) {
-      throw new IllegalStateException("Command " + type.invocationName + " not found.");
+      throw new IllegalStateException("Command " + commandName + " not found.");
     }
 
     // Probably not the most efficient, but this is only being called during construction so it's
     // probably fine
     ArrayList<String> command = new ArrayList<>(args.length + 1);
-    command.add(type.invocationName);
+    command.add(commandName);
     command.addAll(Arrays.asList(args));
     processBuilder = new ProcessBuilder(command);
   }
@@ -69,24 +69,6 @@ public class Streamer {
 
   public InputStream frameStream() {
     return process.getInputStream();
-  }
-
-  public TYPE getType() {
-    return type;
-  }
-
-  public void setType(TYPE type) {
-    this.type = type;
-  }
-
-  public enum TYPE {
-    YUV("raspividyuv"), H264("raspivid");
-
-    private final String invocationName;
-
-    TYPE(String invocationName) {
-      this.invocationName = invocationName;
-    }
   }
 
 }
